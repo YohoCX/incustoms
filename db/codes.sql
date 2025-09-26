@@ -219,17 +219,24 @@ COMMENT ON COLUMN codes_transport_types.short_name IS 'Краткое обозн
 -- Графа 33
 CREATE TABLE IF NOT EXISTS codes_hs
 (
-    id          INT                      NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    created_at  TIMESTAMP WITH TIME ZONE NOT NULL,
-    updated_at  TIMESTAMP WITH TIME ZONE,
-    deleted_at  TIMESTAMP WITH TIME ZONE,
-    status      VARCHAR(255), -- active | deleted | archived
-    code        VARCHAR UNIQUE           NOT NULL,
+    id                              INT                      NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    created_at                      TIMESTAMP WITH TIME ZONE NOT NULL,
+    updated_at                      TIMESTAMP WITH TIME ZONE,
+    deleted_at                      TIMESTAMP WITH TIME ZONE,
+    status                          VARCHAR(255), -- active | deleted | archived
+    code                            VARCHAR UNIQUE           NOT NULL,
 
-    description TEXT                     NOT NULL
+    description                     TEXT                     NOT NULL,
+
+    -- Measurement requirements used in calculations and validations
+    requires_net_mass               BOOLEAN                  NOT NULL DEFAULT TRUE,  -- требуется ли нетто-масса (кг)
+    requires_additional_unit        BOOLEAN                  NOT NULL DEFAULT FALSE, -- требуется ли доп. единица
+    specific_rate_default_unit_id   INT REFERENCES codes_units (id),                -- базовая единица для специфических ставок
+
+    notes                           TEXT
 );
 -- Comments for codes_hs
-COMMENT ON TABLE codes_hs IS 'ТН ВЭД (Графа 33): коды товаров';
+COMMENT ON TABLE codes_hs IS 'ТН ВЭД (Графа 33): коды товаров, флаги измерений и единица по умолчанию для специфических ставок';
 COMMENT ON COLUMN codes_hs.id IS 'Первичный ключ';
 COMMENT ON COLUMN codes_hs.created_at IS 'Дата/время создания записи';
 COMMENT ON COLUMN codes_hs.updated_at IS 'Дата/время изменения записи';
@@ -237,6 +244,10 @@ COMMENT ON COLUMN codes_hs.deleted_at IS 'Дата/время удаления (
 COMMENT ON COLUMN codes_hs.status IS 'Статус записи: active | deleted | archived';
 COMMENT ON COLUMN codes_hs.code IS 'Код ТН ВЭД (обычно 10 цифр), уникальный';
 COMMENT ON COLUMN codes_hs.description IS 'Описание товарной позиции';
+COMMENT ON COLUMN codes_hs.requires_net_mass IS 'Требуется ли заполнение нетто-массы (кг) для расчёта';
+COMMENT ON COLUMN codes_hs.requires_additional_unit IS 'Требуется ли доп. единица измерения для расчёта/учёта';
+COMMENT ON COLUMN codes_hs.specific_rate_default_unit_id IS 'Единица измерения по умолчанию для специфических ставок (если не переопределено в правиле)';
+COMMENT ON COLUMN codes_hs.notes IS 'Примечания/особенности расчётов и контроля';
 
 -- Графа 33, 31
 CREATE TABLE IF NOT EXISTS codes_units
@@ -282,6 +293,77 @@ COMMENT ON COLUMN available_units_for_hs.deleted_at IS 'Дата/время уд
 COMMENT ON COLUMN available_units_for_hs.status IS 'Статус записи: active | deleted | archived';
 COMMENT ON COLUMN available_units_for_hs.codes_hs_id IS 'FK на codes_hs (код ТН ВЭД)';
 COMMENT ON COLUMN available_units_for_hs.codes_units_id IS 'FK на codes_units (единица измерения)';
+
+-- Тарифные правила для расчёта пошлин/НДС/акциза/сборов по ТН ВЭД
+CREATE TABLE IF NOT EXISTS codes_hs_tariff_rules
+(
+    id                       INT                      NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    created_at               TIMESTAMP WITH TIME ZONE NOT NULL,
+    updated_at               TIMESTAMP WITH TIME ZONE,
+    deleted_at               TIMESTAMP WITH TIME ZONE,
+    status                   VARCHAR(255), -- active | deleted | archived
+
+    codes_hs_id              INT                      NOT NULL REFERENCES codes_hs (id),
+
+    -- Условия применимости
+    direction_code           VARCHAR(2),              -- 'ИМ' | 'ЭК' (импорт/экспорт); NULL = для обоих
+    regime_code              VARCHAR(8),              -- код режима; NULL = по умолчанию
+    origin_country_id        INT REFERENCES codes_countries (id), -- ставка с учётом страны происхождения; NULL = любая
+    preference_code          VARCHAR(16),             -- код преференции/льготы (если применяется)
+
+    -- Тип налога/платежа и способ расчёта
+    tax_type                 VARCHAR(16)              NOT NULL,  -- 'duty' | 'vat' | 'excise' | 'fee'
+    method                   VARCHAR(16)              NOT NULL,  -- 'ad_valorem' | 'specific' | 'mixed' | 'exempt'
+
+    -- Параметры расчёта
+    ad_valorem_rate          NUMERIC(7, 3),           -- % от базы (для ad_valorem/mixed)
+    specific_amount          NUMERIC(18, 6),          -- сумма за единицу (для specific/mixed)
+    specific_unit_id         INT REFERENCES codes_units (id), -- единица специфической ставки
+    base                     VARCHAR(16)              NOT NULL DEFAULT 'customs_value', -- 'customs_value' | 'quantity' | 'weight' | 'custom'
+    min_amount               NUMERIC(18, 6),          -- минимальный размер (если установлен)
+    max_amount               NUMERIC(18, 6),          -- максимальный размер (если установлен)
+
+    -- Действие во времени и приоритет
+    valid_from               DATE,
+    valid_to                 DATE,
+    priority                 INT DEFAULT 100,          -- меньший = важнее при конфликте правил
+
+    legal_basis              TEXT,                    -- НПА/примечания
+    notes                    TEXT,
+
+    CONSTRAINT hs_tariff_rules_tax_ck CHECK (tax_type IN ('duty','vat','excise','fee')),
+    CONSTRAINT hs_tariff_rules_method_ck CHECK (method IN ('ad_valorem','specific','mixed','exempt')),
+    CONSTRAINT hs_tariff_rules_dir_ck CHECK (direction_code IS NULL OR direction_code IN ('ИМ','ЭК','ТР')),
+    CONSTRAINT hs_tariff_rules_base_ck CHECK (base IN ('customs_value','quantity','weight','custom'))
+);
+
+-- Индексы для выбора правил
+CREATE INDEX IF NOT EXISTS idx_hs_rules_hs ON codes_hs_tariff_rules (codes_hs_id);
+CREATE INDEX IF NOT EXISTS idx_hs_rules_kind ON codes_hs_tariff_rules (tax_type, method);
+CREATE INDEX IF NOT EXISTS idx_hs_rules_valid ON codes_hs_tariff_rules (valid_from, valid_to);
+CREATE INDEX IF NOT EXISTS idx_hs_rules_origin ON codes_hs_tariff_rules (origin_country_id);
+CREATE INDEX IF NOT EXISTS idx_hs_rules_regime ON codes_hs_tariff_rules (regime_code);
+
+-- Comments for codes_hs_tariff_rules
+COMMENT ON TABLE codes_hs_tariff_rules IS 'Правила расчёта пошлин/НДС/акцизов/сборов по коду ТН ВЭД с учётом направления, режима, происхождения и преференций';
+COMMENT ON COLUMN codes_hs_tariff_rules.codes_hs_id IS 'FK на codes_hs (товарный код)';
+COMMENT ON COLUMN codes_hs_tariff_rules.direction_code IS 'Направление: ИМ/ЭК/ТР; NULL = любое';
+COMMENT ON COLUMN codes_hs_tariff_rules.regime_code IS 'Код таможенного режима; NULL = по умолчанию';
+COMMENT ON COLUMN codes_hs_tariff_rules.origin_country_id IS 'Страна происхождения для дифференциации ставок';
+COMMENT ON COLUMN codes_hs_tariff_rules.preference_code IS 'Код льготы/преференции (при наличии)';
+COMMENT ON COLUMN codes_hs_tariff_rules.tax_type IS 'Тип платежа: duty | vat | excise | fee';
+COMMENT ON COLUMN codes_hs_tariff_rules.method IS 'Метод расчёта: ad_valorem | specific | mixed | exempt';
+COMMENT ON COLUMN codes_hs_tariff_rules.ad_valorem_rate IS '% ставка (для ad valorem/mixed)';
+COMMENT ON COLUMN codes_hs_tariff_rules.specific_amount IS 'Сумма за единицу (для specific/mixed)';
+COMMENT ON COLUMN codes_hs_tariff_rules.specific_unit_id IS 'Единица для специфической ставки';
+COMMENT ON COLUMN codes_hs_tariff_rules.base IS 'База расчёта: customs_value | quantity | weight | custom';
+COMMENT ON COLUMN codes_hs_tariff_rules.min_amount IS 'Минимальный размер платежа (если установлен)';
+COMMENT ON COLUMN codes_hs_tariff_rules.max_amount IS 'Максимальный размер платежа (если установлен)';
+COMMENT ON COLUMN codes_hs_tariff_rules.valid_from IS 'Дата начала действия правила';
+COMMENT ON COLUMN codes_hs_tariff_rules.valid_to IS 'Дата окончания действия правила';
+COMMENT ON COLUMN codes_hs_tariff_rules.priority IS 'Приоритет применения (меньше = выше)';
+COMMENT ON COLUMN codes_hs_tariff_rules.legal_basis IS 'НПА/основание для ставки';
+COMMENT ON COLUMN codes_hs_tariff_rules.notes IS 'Примечания';
 
 -- Графа 37, 41
 CREATE TABLE IF NOT EXISTS codes_movement_types
