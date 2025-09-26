@@ -216,6 +216,29 @@ COMMENT ON COLUMN codes_transport_types.code IS 'Код вида транспо�
 COMMENT ON COLUMN codes_transport_types.name IS 'Наименование вида транспорта';
 COMMENT ON COLUMN codes_transport_types.short_name IS 'Краткое обозначение (аббревиатура)';
 
+-- Графа 33, 31
+CREATE TABLE IF NOT EXISTS codes_units
+(
+    id         INT                      NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE,
+    deleted_at TIMESTAMP WITH TIME ZONE,
+    status     VARCHAR(255), -- active | deleted | archived
+    code       VARCHAR UNIQUE           NOT NULL,
+    alpha_code VARCHAR                  NOT NULL,
+    name       VARCHAR                  NOT NULL
+);
+-- Comments for codes_units
+COMMENT ON TABLE codes_units IS 'Единицы измерения (Графа 33 и правый нижний блок графы 31)';
+COMMENT ON COLUMN codes_units.id IS 'Первичный ключ';
+COMMENT ON COLUMN codes_units.created_at IS 'Дата/время создания записи';
+COMMENT ON COLUMN codes_units.updated_at IS 'Дата/время изменения записи';
+COMMENT ON COLUMN codes_units.deleted_at IS 'Дата/время удаления (мягкое удаление)';
+COMMENT ON COLUMN codes_units.status IS 'Статус записи: active | deleted | archived';
+COMMENT ON COLUMN codes_units.code IS 'Цифровой код единицы измерения (уникальный)';
+COMMENT ON COLUMN codes_units.alpha_code IS 'Буквенный код/сокращение единицы (например, L, M3)';
+COMMENT ON COLUMN codes_units.name IS 'Наименование единицы измерения';
+
 -- Графа 33
 CREATE TABLE IF NOT EXISTS codes_hs
 (
@@ -248,29 +271,6 @@ COMMENT ON COLUMN codes_hs.requires_net_mass IS 'Требуется ли зап�
 COMMENT ON COLUMN codes_hs.requires_additional_unit IS 'Требуется ли доп. единица измерения для расчёта/учёта';
 COMMENT ON COLUMN codes_hs.specific_rate_default_unit_id IS 'Единица измерения по умолчанию для специфических ставок (если не переопределено в правиле)';
 COMMENT ON COLUMN codes_hs.notes IS 'Примечания/особенности расчётов и контроля';
-
--- Графа 33, 31
-CREATE TABLE IF NOT EXISTS codes_units
-(
-    id         INT                      NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    created_at TIMESTAMP WITH TIME ZONE NOT NULL,
-    updated_at TIMESTAMP WITH TIME ZONE,
-    deleted_at TIMESTAMP WITH TIME ZONE,
-    status     VARCHAR(255), -- active | deleted | archived
-    code       VARCHAR UNIQUE           NOT NULL,
-    alpha_code VARCHAR                  NOT NULL,
-    name       VARCHAR                  NOT NULL
-);
--- Comments for codes_units
-COMMENT ON TABLE codes_units IS 'Единицы измерения (Графа 33 и правый нижний блок графы 31)';
-COMMENT ON COLUMN codes_units.id IS 'Первичный ключ';
-COMMENT ON COLUMN codes_units.created_at IS 'Дата/время создания записи';
-COMMENT ON COLUMN codes_units.updated_at IS 'Дата/время изменения записи';
-COMMENT ON COLUMN codes_units.deleted_at IS 'Дата/время удаления (мягкое удаление)';
-COMMENT ON COLUMN codes_units.status IS 'Статус записи: active | deleted | archived';
-COMMENT ON COLUMN codes_units.code IS 'Цифровой код единицы измерения (уникальный)';
-COMMENT ON COLUMN codes_units.alpha_code IS 'Буквенный код/сокращение единицы (например, L, M3)';
-COMMENT ON COLUMN codes_units.name IS 'Наименование единицы измерения';
 
 -- Графа 33
 CREATE TABLE IF NOT EXISTS available_units_for_hs

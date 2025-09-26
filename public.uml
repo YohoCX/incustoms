@@ -2,11 +2,385 @@
 <Diagram>
   <ID>DATABASE</ID>
   <OriginalElement>0414d831-cc2a-43f5-aad7-e160755a812b.SCHEMA:incustoms.public</OriginalElement>
-  <nodes />
+  <nodes>
+    <node x="3684.0" y="3994.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_providers</node>
+    <node x="-404.0" y="3868.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_transactions</node>
+    <node x="3403.5" y="6326.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_posts</node>
+    <node x="5163.5" y="2920.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_currencies</node>
+    <node x="2166.5" y="6638.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.fea_legal_entities</node>
+    <node x="-317.0" y="450.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users</node>
+    <node x="2230.5" y="-1311.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_invoice_items</node>
+    <node x="-297.0" y="4400.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.refunds</node>
+    <node x="375.0" y="2406.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ocr_jobs</node>
+    <node x="5140.0" y="3244.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents</node>
+    <node x="5035.0" y="2314.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.available_units_for_hs</node>
+    <node x="398.5" y="1535.0">0414d831-cc2a-43f5-aad7-e160755a812b.MATERIALIZED VIEW:incustoms.public.ccd_analytics_weekly</node>
+    <node x="731.0" y="-333.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.legal_users</node>
+    <node x="1269.5" y="535.0">0414d831-cc2a-43f5-aad7-e160755a812b.MATERIALIZED VIEW:incustoms.public.ccd_analytics_yearly</node>
+    <node x="386.5" y="1834.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.files</node>
+    <node x="6876.0" y="6521.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_deal_types</node>
+    <node x="5320.0" y="2634.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.currency_exchange_rate</node>
+    <node x="4163.5" y="2300.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_units</node>
+    <node x="2895.0" y="850.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_sessions</node>
+    <node x="4284.0" y="682.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_items</node>
+    <node x="4107.0" y="6526.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.fea_legal_entities_short</node>
+    <node x="1302.5" y="920.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.organizations</node>
+    <node x="7571.0" y="5995.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_delivery_terms</node>
+    <node x="6876.0" y="6258.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_payment_forms</node>
+    <node x="2581.5" y="5972.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.fea_individual_entities</node>
+    <node x="731.0" y="181.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.roles</node>
+    <node x="4093.0" y="3010.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.idempotency_keys</node>
+    <node x="-377.5" y="3022.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ocr_traffic_limits</node>
+    <node x="4743.5" y="374.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_districts</node>
+    <node x="6793.0" y="5995.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_movement_types</node>
+    <node x="4383.5" y="7020.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_transport_types</node>
+    <node x="8363.5" y="6866.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_countries</node>
+    <node x="731.0" y="-764.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.individual_users</node>
+    <node x="-344.5" y="3526.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.price_plans</node>
+    <node x="8353.0" y="7214.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.fea_partners</node>
+    <node x="5911.5" y="6066.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.fea_partners_additional</node>
+    <node x="412.5" y="1235.0">0414d831-cc2a-43f5-aad7-e160755a812b.MATERIALIZED VIEW:incustoms.public.ccd_analytics_daily</node>
+    <node x="5103.5" y="1354.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_hs</node>
+    <node x="7571.0" y="6286.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.banks</node>
+    <node x="7571.0" y="6633.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_forms</node>
+    <node x="4462.5" y="3994.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.webhook_events</node>
+    <node x="475.0" y="935.0">0414d831-cc2a-43f5-aad7-e160755a812b.MATERIALIZED VIEW:incustoms.public.ccd_analytics_monthly</node>
+    <node x="2105.5" y="-1049.5">0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_invoices</node>
+  </nodes>
   <notes />
-  <edges />
-  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="2.2737367544323206E-13" y="0.0" />
-  <SelectedNodes />
+  <edges>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.roles" relationship="REFERENCES">
+      <point x="308.0" y="-37.25" />
+      <point x="505.0" y="618.75" />
+      <point x="505.0" y="289.0" />
+      <point x="-304.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_currencies" relationship="REFERENCES">
+      <point x="351.0" y="-75.0" />
+      <point x="5913.5" y="4481.0" />
+      <point x="5913.5" y="3056.0" />
+      <point x="327.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.MATERIALIZED VIEW:incustoms.public.ccd_analytics_monthly" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" relationship="REFERENCES">
+      <point x="-396.0" y="0.0" />
+      <point x="11.0" y="1056.0" />
+      <point x="20.0" y="205.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_transactions" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.price_plans" relationship="REFERENCES">
+      <point x="0.0" y="-247.5" />
+      <point x="0.0" y="149.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_transactions" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_sessions" relationship="REFERENCES">
+      <point x="395.0" y="-58.0" />
+      <point x="3271.0" y="4058.0" />
+      <point x="-0.0" y="205.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_sessions" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.organizations" relationship="REFERENCES">
+      <point x="-376.0" y="5.0" />
+      <point x="348.5" y="5.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.organizations" relationship="REFERENCES">
+      <point x="30.0" y="205.5" />
+      <point x="21.0" y="863.5" />
+      <point x="1646.0" y="863.5" />
+      <point x="-5.0" y="-135.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.fea_individual_entities" relationship="REFERENCES">
+      <point x="40.0" y="1311.5" />
+      <point x="5531.0" y="7321.5" />
+      <point x="3133.0" y="7321.5" />
+      <point x="162.0" y="303.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ocr_traffic_limits" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" relationship="REFERENCES">
+      <point x="-30.0" y="-233.5" />
+      <point x="-30.0" y="205.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ocr_traffic_limits" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.price_plans" relationship="REFERENCES">
+      <point x="0.0" y="233.5" />
+      <point x="0.0" y="-149.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.price_plans" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_currencies" relationship="REFERENCES">
+      <point x="335.5" y="0.0" />
+      <point x="4851.0" y="3676.0" />
+      <point x="4851.0" y="3056.0" />
+      <point x="-327.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_movement_types" relationship="REFERENCES">
+      <point x="351.0" y="5.0" />
+      <point x="7536.714285714285" y="4561.0" />
+      <point x="7536.714285714285" y="6117.0" />
+      <point x="369.0" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.currency_exchange_rate" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_currencies" relationship="REFERENCES">
+      <point x="0.0" y="121.5" />
+      <point x="0.0" y="-135.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_countries" relationship="REFERENCES">
+      <point x="110.0" y="1311.5" />
+      <point x="5601.0" y="7064.0" />
+      <point x="-327.5" y="48.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.organizations" relationship="REFERENCES">
+      <point x="-351.0" y="640.75" />
+      <point x="1681.0" y="5196.75" />
+      <point x="30.0" y="135.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.banks" relationship="REFERENCES">
+      <point x="351.0" y="-35.0" />
+      <point x="7559.5714285714275" y="4521.0" />
+      <point x="7559.5714285714275" y="6450.0" />
+      <point x="-307.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_invoices" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.organizations" relationship="REFERENCES">
+      <point x="-365.5" y="5.0" />
+      <point x="2034.5" y="-839.0" />
+      <point x="2034.5" y="1051.0" />
+      <point x="348.5" y="-5.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_transactions" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_providers" relationship="REFERENCES">
+      <point x="395.0" y="0.0" />
+      <point x="-367.0" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.MATERIALIZED VIEW:incustoms.public.ccd_analytics_daily" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.organizations" relationship="REFERENCES">
+      <point x="378.5" y="0.0" />
+      <point x="1621.0" y="1356.0" />
+      <point x="-30.0" y="135.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_items" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_countries" relationship="REFERENCES">
+      <point x="207.0" y="452.5" />
+      <point x="8696.0" y="1928.5" />
+      <point x="5.0" y="-149.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.files" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" relationship="REFERENCES">
+      <point x="-304.5" y="0.0" />
+      <point x="-19.0" y="2096.0" />
+      <point x="-10.0" y="205.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ocr_jobs" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.organizations" relationship="REFERENCES">
+      <point x="316.0" y="0.0" />
+      <point x="1651.0" y="2696.0" />
+      <point x="0.0" y="135.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_items" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" relationship="REFERENCES">
+      <point x="207.0" y="462.5" />
+      <point x="5832.0" y="1938.5" />
+      <point x="341.0" y="-1311.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_forms" relationship="REFERENCES">
+      <point x="351.0" y="-25.0" />
+      <point x="7553.857142857143" y="4531.0" />
+      <point x="7553.857142857143" y="6783.0" />
+      <point x="-327.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ocr_traffic_limits" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.organizations" relationship="REFERENCES">
+      <point x="368.5" y="0.0" />
+      <point x="1661.0" y="3256.0" />
+      <point x="10.0" y="135.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.fea_partners_additional" relationship="REFERENCES">
+      <point x="351.0" y="55.0" />
+      <point x="6311.0" y="4611.0" />
+      <point x="-0.0" y="-149.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.fea_partners" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_countries" relationship="REFERENCES">
+      <point x="0.0" y="-121.5" />
+      <point x="0.0" y="149.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.MATERIALIZED VIEW:incustoms.public.ccd_analytics_yearly" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" relationship="REFERENCES">
+      <point x="-381.5" y="0.0" />
+      <point x="308.0" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ocr_jobs" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" relationship="REFERENCES">
+      <point x="-0.0" y="289.5" />
+      <point x="691.0" y="5206.75" />
+      <point x="-351.0" y="650.75" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_transactions" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_invoices" relationship="REFERENCES">
+      <point x="395.0" y="-68.0" />
+      <point x="2471.0" y="4048.0" />
+      <point x="-0.0" y="205.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.fea_legal_entities" relationship="REFERENCES">
+      <point x="-351.0" y="660.75" />
+      <point x="2531.0" y="5216.75" />
+      <point x="-0.0" y="-317.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.refunds" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_transactions" relationship="REFERENCES">
+      <point x="0.0" y="-135.5" />
+      <point x="0.0" y="247.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_payment_forms" relationship="REFERENCES">
+      <point x="351.0" y="-5.0" />
+      <point x="7542.428571428571" y="4551.0" />
+      <point x="7542.428571428571" y="6380.0" />
+      <point x="327.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_items" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_units" relationship="REFERENCES">
+      <point x="-207.0" y="-1.0" />
+      <point x="4091.0" y="1475.0" />
+      <point x="4091.0" y="2436.0" />
+      <point x="-327.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.available_units_for_hs" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_units" relationship="REFERENCES">
+      <point x="-396.0" y="0.0" />
+      <point x="327.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.MATERIALIZED VIEW:incustoms.public.ccd_analytics_weekly" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" relationship="REFERENCES">
+      <point x="-392.5" y="0.0" />
+      <point x="-9.0" y="1656.0" />
+      <point x="0.0" y="205.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_posts" relationship="REFERENCES">
+      <point x="-90.0" y="1311.5" />
+      <point x="5401.0" y="6068.5" />
+      <point x="3731.0" y="6068.5" />
+      <point x="0.0" y="-149.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.legal_users" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" relationship="REFERENCES">
+      <point x="-333.0" y="0.0" />
+      <point x="495.0" y="-86.0" />
+      <point x="495.0" y="608.75" />
+      <point x="308.0" y="-47.25" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.MATERIALIZED VIEW:incustoms.public.ccd_analytics_yearly" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.organizations" relationship="REFERENCES">
+      <point x="5.0" y="121.0" />
+      <point x="5.0" y="-135.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_delivery_terms" relationship="REFERENCES">
+      <point x="351.0" y="-45.0" />
+      <point x="7565.285714285714" y="4511.0" />
+      <point x="7565.285714285714" y="6131.0" />
+      <point x="-348.0" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_items" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_hs" relationship="REFERENCES">
+      <point x="207.0" y="0.0" />
+      <point x="-327.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_items" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_districts" relationship="REFERENCES">
+      <point x="0.0" y="-793.5" />
+      <point x="4491.0" y="496.0" />
+      <point x="-327.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_transactions" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.organizations" relationship="REFERENCES">
+      <point x="395.0" y="-78.0" />
+      <point x="1671.0" y="4038.0" />
+      <point x="20.0" y="135.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_invoices" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" relationship="REFERENCES">
+      <point x="-365.5" y="-63.0" />
+      <point x="-14.0" y="-907.0" />
+      <point x="-5.0" y="-205.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.MATERIALIZED VIEW:incustoms.public.ccd_analytics_monthly" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.organizations" relationship="REFERENCES">
+      <point x="396.0" y="0.0" />
+      <point x="-348.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_transport_types" relationship="REFERENCES">
+      <point x="10.0" y="1311.5" />
+      <point x="5501.0" y="7156.0" />
+      <point x="327.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.refunds" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_providers" relationship="REFERENCES">
+      <point x="288.0" y="0.0" />
+      <point x="4051.0" y="4536.0" />
+      <point x="0.0" y="121.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_sessions" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" relationship="REFERENCES">
+      <point x="-5.0" y="-205.5" />
+      <point x="3266.0" y="448.5" />
+      <point x="-4.0" y="448.5" />
+      <point x="5.0" y="-205.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_sessions" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_providers" relationship="REFERENCES">
+      <point x="376.0" y="0.0" />
+      <point x="4051.0" y="1056.0" />
+      <point x="0.0" y="-121.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_districts" relationship="REFERENCES">
+      <point x="346.0" y="-1311.5" />
+      <point x="5837.0" y="496.0" />
+      <point x="327.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.files" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.organizations" relationship="REFERENCES">
+      <point x="304.5" y="-49.0" />
+      <point x="1641.0" y="2047.0" />
+      <point x="-10.0" y="135.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_deal_types" relationship="REFERENCES">
+      <point x="351.0" y="-15.0" />
+      <point x="7548.142857142856" y="4541.0" />
+      <point x="7548.142857142856" y="6657.0" />
+      <point x="327.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.MATERIALIZED VIEW:incustoms.public.ccd_analytics_weekly" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.organizations" relationship="REFERENCES">
+      <point x="392.5" y="0.0" />
+      <point x="1631.0" y="1656.0" />
+      <point x="-20.0" y="135.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.available_units_for_hs" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.codes_hs" relationship="REFERENCES">
+      <point x="0.0" y="-121.5" />
+      <point x="0.0" y="121.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_sessions" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_invoices" relationship="REFERENCES">
+      <point x="5.0" y="-205.5" />
+      <point x="3276.0" y="-844.0" />
+      <point x="365.5" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_items" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.files" relationship="REFERENCES">
+      <point x="-207.0" y="581.0" />
+      <point x="304.5" y="-39.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.webhook_events" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_providers" relationship="REFERENCES">
+      <point x="-308.5" y="0.0" />
+      <point x="367.0" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.fea_legal_entities_short" relationship="REFERENCES">
+      <point x="-70.0" y="1311.5" />
+      <point x="5421.0" y="6324.5" />
+      <point x="4511.0" y="6324.5" />
+      <point x="0.0" y="-149.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ocr_jobs" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.files" relationship="REFERENCES">
+      <point x="0.0" y="-289.5" />
+      <point x="0.0" y="261.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.MATERIALIZED VIEW:incustoms.public.ccd_analytics_daily" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" relationship="REFERENCES">
+      <point x="-378.5" y="0.0" />
+      <point x="1.0" y="1356.0" />
+      <point x="10.0" y="205.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_transactions" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" relationship="REFERENCES">
+      <point x="-395.0" y="0.0" />
+      <point x="-406.0" y="4116.0" />
+      <point x="-406.0" y="656.0" />
+      <point x="-308.0" y="0.0" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ocr_jobs" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" relationship="REFERENCES">
+      <point x="-316.0" y="0.0" />
+      <point x="-29.0" y="2696.0" />
+      <point x="-20.0" y="205.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_documents" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" relationship="REFERENCES">
+      <point x="-351.0" y="630.75" />
+      <point x="2579.5" y="5186.75" />
+      <point x="2579.5" y="852.5" />
+      <point x="308.0" y="196.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_invoice_items" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.payment_invoices" relationship="REFERENCES">
+      <point x="0.0" y="107.5" />
+      <point x="0.0" y="-205.5" />
+    </edge>
+    <edge source="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.individual_users" target="0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.users" relationship="REFERENCES">
+      <point x="-363.0" y="0.0" />
+      <point x="485.0" y="-559.0" />
+      <point x="485.0" y="598.75" />
+      <point x="308.0" y="-57.25" />
+    </edge>
+  </edges>
+  <settings layout="Compact" zoom="0.08987485779294653" showDependencies="false" x="4322.5" y="3083.0" />
+  <SelectedNodes>
+    <node>0414d831-cc2a-43f5-aad7-e160755a812b.TABLE:incustoms.public.ccd_items</node>
+  </SelectedNodes>
   <Categories>
     <Category>Columns</Category>
     <Category>Comments</Category>
