@@ -29,7 +29,6 @@ CREATE TABLE IF NOT EXISTS ccd_documents
 
     created_by_user_id     INT REFERENCES users (id),
     organization_id        INT REFERENCES organizations (id),
-    main_item_id           INT REFERENCES ccd_items (id),
 
     -- Graph 1: Declaration type
     direction_code         direction_code    NOT NULL,
@@ -128,7 +127,6 @@ COMMENT ON COLUMN ccd_documents.deleted_at IS 'Дата/время удален�
 COMMENT ON COLUMN ccd_documents.status IS 'Статус CCD (draft/pending/submitted/accepted/rejected/completed)';
 COMMENT ON COLUMN ccd_documents.created_by_user_id IS 'Автор CCD (пользователь платформы)';
 COMMENT ON COLUMN ccd_documents.organization_id IS 'Организация-владелец CCD';
-COMMENT ON COLUMN ccd_documents.main_item_id IS 'Основная товарная позиция декларации (FK на ccd_items)';
 COMMENT ON COLUMN ccd_documents.direction_code IS 'Графа 1: код направления (ИМ/ЭК/ТР)';
 COMMENT ON COLUMN ccd_documents.third_subdivision IS 'Графа 1: третий подраздел (например, ПНД)';
 COMMENT ON COLUMN ccd_documents.total_sheets IS 'Графа 3: всего листов (авто)';
@@ -346,6 +344,12 @@ COMMENT ON COLUMN ccd_items.statistical_value_thousand_usd IS 'Графа 46: с
 COMMENT ON COLUMN ccd_items.payments IS 'Графа 47: платежи по позиции (JSON)';
 COMMENT ON COLUMN ccd_items.source_invoice_file_id IS 'FK на files (исходный счет-фактура)';
 COMMENT ON COLUMN ccd_items.source_invoice_row_ref IS 'Ссылка на строку в исходном счете';
+
+-- Add main_item_id after ccd_items is created to avoid forward reference
+ALTER TABLE ccd_documents
+    ADD COLUMN IF NOT EXISTS main_item_id INT REFERENCES ccd_items (id);
+
+COMMENT ON COLUMN ccd_documents.main_item_id IS 'Основная товарная позиция декларации (FK на ccd_items)';
 
 -- ============================================================================
 -- EXTENDED DOCUMENT TABLES (from graphs.md)
